@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Ananya</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    /* STARFIELD */
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      animation: moveStar linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes moveStar {
+      from { transform: translateY(0); }
+      to { transform: translateY(100vh); }
+    }
+
+    /* TEXT ANIMATIONS */
+    .message {
+      position: absolute;
+      top: 40vh;
+      width: 100%;
+      font-size: 3rem;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    #msg2 { animation-delay: 3s; }
+    #msg3 { animation-delay: 6s; }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* GLITCH VFX */
+    .glitch {
+      color: #fff;
+      position: relative;
+      animation: glitch-skew 1s infinite linear alternate-reverse;
+    }
+
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .glitch::before {
+      left: 2px;
+      text-shadow: -2px 0 red;
+      animation: glitch-anim 1s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+      left: -2px;
+      text-shadow: -2px 0 blue;
+      animation: glitch-anim2 1s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitch-anim {
+      0% { clip-path: inset(10% 0 30% 0); }
+      100% { clip-path: inset(40% 0 5% 0); }
+    }
+
+    @keyframes glitch-anim2 {
+      0% { clip-path: inset(20% 0 40% 0); }
+      100% { clip-path: inset(5% 0 20% 0); }
+    }
+
+    @keyframes glitch-skew {
+      0% { transform: skew(0deg); }
+      100% { transform: skew(2deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="msg1" class="message glitch" data-text="Happy Birthday Ananya!">Happy Birthday Ananya!</div>
+  <div id="msg2" class="message glitch" data-text="Wish you a super happy birthday!">Wish you a super happy birthday!</div>
+  <div id="msg3" class="message glitch" data-text="You're turning 12 now — one step closer to becoming a teen!">You're turning 12 now — one step closer to becoming a teen!</div>
+
+  <script>
+    // Generate starfield
+    function createStar() {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = Math.random() * window.innerWidth + 'px';
+      star.style.top = -10 + 'px';
+      star.style.animationDuration = (2 + Math.random() * 4) + 's';
+      document.body.appendChild(star);
+
+      setTimeout(() => star.remove(), 6000);
+    }
+
+    setInterval(createStar, 80);
+  </script>
+</body>
+</html>
