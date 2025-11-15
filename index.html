@@ -93,9 +93,15 @@
   </style>
 </head>
 <body>
-  <div id="msg1" class="message glitch" data-text="Happy Birthday Ananya!">Happy Birthday Ananya!</div>
-  <div id="msg2" class="message glitch" data-text="Wish you a super happy birthday!">Wish you a super happy birthday!</div>
-  <div id="msg3" class="message glitch" data-text="You're turning 12 now — one step closer to becoming a teen!">You're turning 12 now — one step closer to becoming a teen!</div>
+  <!-- Fullscreen gradient background -->
+  <div style="position:fixed; inset:0; background: radial-gradient(circle at center, #ff00e1, #3b0066, #000); z-index:-2;"></div>
+
+  <!-- Glow overlay -->
+  <div style="position:fixed; inset:0; background: rgba(255, 0, 255, 0.15); mix-blend-mode: screen; z-index:-1;"></div>
+
+  <div id="msg1" class="message glitch" data-text="Happy 12th Birthday Ananya!">Happy 12th Birthday Ananya!</div>
+  <div id="msg2" class="message glitch" data-text="Wishing you the most amazing day ever!">Wishing you the most amazing day ever!</div>
+  <div id="msg3" class="message glitch" data-text="You're officially one step closer to being a teen ✨">You're officially one step closer to being a teen ✨</div>
 
   <script>
     // Generate starfield
