@@ -3,81 +3,157 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Happy 12th Birthday Ananya 🎉</title>
+<title>Happy 12th Birthday Ananya 🎉 — Mega Celebration</title>
 <style>
-:root{--bg1:#0b0033;--bg2:#3b0066;--accent:#ff6ae6;--glass:rgba(255,255,255,0.06);}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Poppins",sans-serif;-webkit-font-smoothing:antialiased;}
-body{background: radial-gradient(1200px 800px at 10% 20%, rgba(255,0,200,0.08), transparent), radial-gradient(900px 600px at 90% 80%, rgba(0,150,255,0.05), transparent), linear-gradient(180deg,var(--bg1),var(--bg2)); overflow:hidden;color:white;display:flex;align-items:center;justify-content:center;text-align:center;}
-.wrap{position:relative;width:100%;max-width:1100px;padding:40px;box-sizing:border-box;}
-.headline{font-size:clamp(28px,6vw,72px);letter-spacing:-1px;font-weight:800;line-height:0.9;margin:0;transform:translateZ(0);filter:drop-shadow(0 8px 40px rgba(0,0,0,0.6));}
-.neon{color:white;position:relative;display:inline-block;padding:8px 16px;}
-.neon::before,.neon::after{content:attr(data-text);position:absolute;left:0;top:0;right:0;bottom:0;z-index:-1;mix-blend-mode:screen;}
-.neon::before{transform:translate(6px,-6px) skewX(-6deg);color:var(--accent);opacity:0.75;filter:blur(8px);}
-.neon::after{transform:translate(-6px,6px) skewX(6deg);color:#00e6ff;opacity:0.55;filter:blur(14px);}
-.sub{margin-top:12px;font-weight:600;font-size:clamp(14px,2.2vw,22px);opacity:0.95;}
-.big12{margin:22px auto 8px;width:220px;height:220px;border-radius:40px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));box-shadow:0 12px 40px rgba(59,0,102,0.45), inset 0 -6px 18px rgba(0,0,0,0.25);backdrop-filter:blur(6px);position:relative;}
-.big12 .num{font-size:6rem;font-weight:900;line-height:0.8;color:#fff;letter-spacing:-6px;text-shadow:0 6px 40px rgba(179,0,220,0.45);}
-.tiny{margin-top:10px;font-weight:500;opacity:0.9;}
-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;}
-#ui{position:fixed;bottom:28px;right:28px;z-index:50;display:flex;gap:10px;align-items:center;}
-.btn{background:linear-gradient(90deg,#ff6ae6,#00e6ff);color:#030017;border:0;padding:10px 14px;font-weight:700;border-radius:12px;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,0.45);transform:translateZ(0);}
-.glitters{position:fixed;inset:0;z-index:2;mix-blend-mode:screen;pointer-events:none;}
-.fadein{opacity:0;transform:translateY(8px) scale(0.98);animation:fadeUp 700ms cubic-bezier(.2,.9,.3,1) forwards;}
-.delay-1{animation-delay:0.6s;}
-.delay-2{animation-delay:1.6s;}
-.delay-3{animation-delay:2.6s;}
-@keyframes fadeUp{to{opacity:1;transform:none;}}
-.footer-text{margin-top:20px;font-size:18px;font-weight:500;opacity:0.85;}
+:root{--bg1:#07102b;--bg2:#38104f;--accent:#ff6ae6;--glass:rgba(255,255,255,0.06);} 
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Poppins",sans-serif;-webkit-font-smoothing:antialiased;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:white}
+.container{min-height:100vh;display:grid;place-items:center;padding:36px}
+.stage{position:relative;width:100%;max-width:1200px;padding:28px;border-radius:20px;overflow:visible}
+.header{display:flex;flex-direction:column;align-items:center;gap:16px}
+.title{font-size:clamp(26px,6vw,64px);font-weight:900;line-height:0.95;letter-spacing:-1px}
+.neon{position:relative;padding:6px 14px;display:inline-block}
+.neon::before,.neon::after{content:attr(data-text);position:absolute;inset:0;z-index:-1;mix-blend-mode:screen}
+.neon::before{transform:translate(6px,-6px);color:var(--accent);opacity:0.75;filter:blur(8px)}
+.neon::after{transform:translate(-6px,6px);color:#00e6ff;opacity:0.5;filter:blur(14px)}
+.big12{width:260px;height:260px;border-radius:36px;margin:10px auto;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));box-shadow:0 18px 60px rgba(0,0,0,0.45);backdrop-filter:blur(8px)}
+.big12 .num{font-size:7rem;font-weight:900;line-height:0.8}
+.controls{position:fixed;right:22px;bottom:22px;display:flex;flex-direction:column;gap:10px;z-index:999}
+.btn{background:linear-gradient(90deg,#ff6ae6,#00e6ff);color:#030017;border:0;padding:10px 14px;font-weight:800;border-radius:12px;cursor:pointer;box-shadow:0 10px 32px rgba(0,0,0,0.45);min-width:120px}
+.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px}
+.card-modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(0.98);width:92%;max-width:720px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));border-radius:18px;padding:26px;backdrop-filter:blur(8px);box-shadow:0 20px 60px rgba(0,0,0,0.6);z-index:1001;opacity:0;pointer-events:none;transition:all 240ms ease}
+.card-modal.show{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto}
+.card-body{font-size:18px;line-height:1.5;color:#fff}
+.card-close{position:absolute;right:14px;top:10px;background:transparent;border:0;color:rgba(255,255,255,0.85);font-weight:700;cursor:pointer}
+.footer-note{margin-top:12px;font-size:14px;opacity:0.9}
+.canvas-wrap{position:fixed;inset:0;pointer-events:none;z-index:1}
+.balloon{position:absolute;bottom:-150px;width:80px;height:110px;border-radius:50% 50% 48% 48%;display:flex;align-items:flex-end;justify-content:center}
+.balloon .string{width:2px;height:60px;background:rgba(255,255,255,0.06);margin-bottom:-30px}
+.pop-btn{position:fixed;left:22px;bottom:22px;z-index:999}
+.countdown{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-size:96px;font-weight:900;z-index:1500;background:rgba(0,0,0,0.38)}
+.small{font-size:14px}
+@media (max-width:520px){.big12{width:180px;height:180px}.big12 .num{font-size:4.6rem}}
 </style>
 </head>
 <body>
-<canvas id="confetti"></canvas>
-<canvas id="fw"></canvas>
-<div class="wrap" role="main" aria-live="polite">
-<div class="fadein delay-1">
-<div class="big12" id="big12" aria-hidden="true">
-<div class="num">12</div>
+<div class="container">
+  <div class="stage" role="main">
+    <div class="header">
+      <div class="big12" aria-hidden="true"><div class="num">12</div></div>
+      <h1 class="title neon" data-text="Happy 12th Birthday Ananya!">Happy 12th Birthday Ananya!</h1>
+      <div class="sub small">Hope your day is awesome — you're officially 12 and one step closer to being a teen ✨</div>
+    </div>
+
+    <div class="card-preview" style="margin-top:26px;text-align:center">
+      <button class="btn" id="openCard">Open Card</button>
+    </div>
+  </div>
 </div>
+
+<!-- controls -->
+<div class="controls" aria-hidden="false">
+  <button class="btn" id="replayBtn">Replay (Full)</button>
+  <button class="btn secondary" id="burstBtn">Fireworks</button>
+  <button class="btn secondary" id="popBalloons">Balloons</button>
+  <button class="btn" id="asmrBtn">ASMR: On</button>
 </div>
-<h1 class="headline fadein delay-2">
-<span class="neon" data-text="Happy 12th Birthday Ananya!">Happy 12th Birthday Ananya!</span>
-</h1>
-<p class="sub fadein delay-3">Wishing you the most amazing day — you're officially one step closer to being a teen ✨</p>
-<p class="tiny fadein delay-3">Hope this lil animation makes someone’s day — share the smile ❤️</p>
-<p class="footer-text fadein delay-3">- Krishna & Charitha</p>
+
+<!-- card modal -->
+<div class="card-modal" id="cardModal" role="dialog" aria-modal="true" aria-labelledby="cardTitle">
+  <button class="card-close" id="closeCard">✕</button>
+  <div class="card-body">
+    <h2 id="cardTitle">Dear Ananya,</h2>
+    <p>Wishing you the happiest birthday ever! I hope you have an amazing day and a wonderful year ahead. You're now one step closer to becoming a teen — you're 12, and this next chapter is going to be awesome. Keep shining, keep smiling, and never stop being you.</p>
+    <p class="footer-note">— Krishna & Charitha</p>
+  </div>
 </div>
-<div id="ui" aria-hidden="false">
-<button class="btn" id="replayBtn">Replay ✨</button>
-<button class="btn" id="burstBtn">Fireworks 🎇</button>
+
+<!-- hidden countdown -->
+<div id="countdownHolder" aria-hidden="true"></div>
+
+<!-- canvases -->
+<div class="canvas-wrap">
+  <canvas id="confetti"></canvas>
+  <canvas id="fw"></canvas>
+  <canvas id="balloonsCanvas"></canvas>
 </div>
-<svg class="glitters" width="100%" height="100%" viewBox="0 0 800 600" preserveAspectRatio="none">
-<defs>
-<radialGradient id="g1"><stop offset="0" stop-color="#fff" stop-opacity="0.8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
-</defs>
-<circle cx="10%" cy="20%" r="120" fill="url(#g1)" opacity="0.06"/>
-<circle cx="85%" cy="80%" r="90" fill="url(#g1)" opacity="0.04"/>
-</svg>
+
 <script>
-const confetti=document.getElementById('confetti'); const fw=document.getElementById('fw'); const DPR=Math.max(1,window.devicePixelRatio||1);
-function resize(){confetti.width=innerWidth*DPR; confetti.height=innerHeight*DPR; confetti.style.width=innerWidth+'px'; confetti.style.height=innerHeight+'px'; fw.width=innerWidth*DPR; fw.height=innerHeight*DPR; fw.style.width=innerWidth+'px'; fw.style.height=innerHeight+'px';}
-resize(); window.addEventListener('resize',resize);
+// --- setup canvases ---
+const confetti=document.getElementById('confetti'); const fw=document.getElementById('fw'); const balloonsCanvas=document.getElementById('balloonsCanvas'); const DPR=Math.max(1,window.devicePixelRatio||1);
+function resize(){[confetti,fw,balloonsCanvas].forEach(c=>{c.width=innerWidth*DPR;c.height=innerHeight*DPR;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px'});}resize(); window.addEventListener('resize',resize);
+
+// --- confetti ---
 const cctx=confetti.getContext('2d'); let confettis=[];
-function spawnConfetti(n=80){for(let i=0;i<n;i++){confettis.push({x:Math.random()*confetti.width,y:-Math.random()*confetti.height/2,vx:(Math.random()-0.5)*6,vy:2+Math.random()*4,r:6+Math.random()*10,color:`hsl(${Math.floor(Math.random()*360)},70%,60%)`,rot:Math.random()*360,rotSpeed:(Math.random()-0.5)*12,life:0});}}
-function updateConfetti(){cctx.clearRect(0,0,confetti.width,confetti.height); for(let i=confettis.length-1;i>=0;i--){const p=confettis[i];p.x+=p.vx*DPR;p.y+=p.vy*DPR;p.vy+=0.06;p.rot+=p.rotSpeed;p.life+=1;cctx.save();cctx.translate(p.x,p.y);cctx.rotate(p.rot*Math.PI/180);cctx.fillStyle=p.color;cctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*0.6);cctx.restore();if(p.y>confetti.height+50||p.life>400) confettis.splice(i,1);} requestAnimationFrame(updateConfetti);} updateConfetti();
+function spawnConfetti(n=80){for(let i=0;i<n;i++){confettis.push({x:Math.random()*confetti.width,y:-Math.random()*confetti.height/2,vx:(Math.random()-0.5)*6,vy:2+Math.random()*4,r:6+Math.random()*10,color:`hsl(${Math.floor(Math.random()*360)},75%,62%)`,rot:Math.random()*360,rotSpeed:(Math.random()-0.5)*12,life:0});}}
+function updateConfetti(){cctx.clearRect(0,0,confetti.width,confetti.height); for(let i=confettis.length-1;i>=0;i--){const p=confettis[i];p.x+=p.vx*DPR;p.y+=p.vy*DPR;p.vy+=0.06;p.rot+=p.rotSpeed;p.life++;cctx.save();cctx.translate(p.x,p.y);cctx.rotate(p.rot*Math.PI/180);cctx.fillStyle=p.color;cctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*0.6);cctx.restore();if(p.y>confetti.height+80||p.life>400) confettis.splice(i,1);} requestAnimationFrame(updateConfetti);} updateConfetti();
+
+// --- fireworks ---
 const fctx=fw.getContext('2d'); let rockets=[],particles=[];
 function launchFirework(x,y){rockets.push({x:Math.random()*fw.width,y:fw.height+50,tx:x*DPR,ty:y*DPR,vx:0,vy:-12-Math.random()*6,life:0});}
-function explode(x,y,color){const count=36+Math.floor(Math.random()*20);for(let i=0;i<count;i++){const ang=Math.random()*Math.PI*2;const speed=2+Math.random()*6;particles.push({x,y,vx:Math.cos(ang)*speed,vy:Math.sin(ang)*speed,life:0,color});}}
-function updateFireworks(){fctx.clearRect(0,0,fw.width,fw.height);for(let i=rockets.length-1;i>=0;i--){const r=rockets[i];r.x+=r.vx;r.y+=r.vy;r.vy+=0.18;r.life++;fctx.beginPath();fctx.moveTo(r.x,r.y);fctx.lineTo(r.x,r.y+10);fctx.strokeStyle='rgba(255,255,255,0.9)';fctx.lineWidth=2;fctx.stroke();if(r.vy>=-2||r.y<r.ty){explode(r.x,r.y,`hsl(${Math.floor(Math.random()*360)},80%,60%)`);rockets.splice(i,1);}}for(let i=particles.length-1;i>=0;i--){const p=particles[i];p.x+=p.vx*DPR;p.y+=p.vy*DPR;p.vy+=0.08;p.life++;const alpha=Math.max(0,1-p.life/90);fctx.beginPath();fctx.arc(p.x,p.y,2.2,0,Math.PI*2);fctx.fillStyle=`rgba(${hexToRgb(p.color)},${alpha})`;fctx.fill();if(p.life>120) particles.splice(i,1);}requestAnimationFrame(updateFireworks);} updateFireworks();
-function hexToRgb(hsl){return hslToRgbString(hsl);} function hslToRgbString(hsl){const m=/hsl\((\d+),\s*(\d+)%?,\s*(\d+)%?\)/.exec(hsl);if(!m)return '255,255,255';const h=+m[1],s=+m[2]/100,l=+m[3]/100;const a=s*Math.min(l,1-l);const f=n=>{const k=(n+h/30)%12;const color=l-a*Math.max(Math.min(k-3,9-k,1),-1);return Math.round(255*color);};return `${f(0)},${f(8)},${f(4)}`;}
-const big12=document.getElementById('big12');
-function hypeSequence(){spawnConfetti(110); big12.animate([{transform:'scale(1)'},{transform:'scale(1.14)'},{transform:'scale(1)'}],{duration:900,iterations:1,easing:'cubic-bezier(.2,.9,.3,1)'});for(let i=0;i<24;i++){setTimeout(()=>launchFirework(Math.random()*innerWidth,Math.random()*innerHeight*0.45+30),i*250);}}
-hypeSequence(); setTimeout(()=>spawnConfetti(40),1600); setInterval(()=>{if(Math.random()<0.25) hypeSequence();},22000);
-const replayBtn=document.getElementById('replayBtn'); replayBtn.addEventListener('click',()=>{rockets=[];particles=[];confettis=[];hypeSequence();spawnConfetti(200);for(let i=0;i<24;i++)launchFirework(Math.random()*innerWidth,Math.random()*innerHeight*0.45+30);});
-document.getElementById('burstBtn').addEventListener('click',()=>{spawnConfetti(200);for(let i=0;i<24;i++)launchFirework(Math.random()*innerWidth,Math.random()*innerHeight*0.45+30);});
-let audioCtx=null; replayBtn.addEventListener('click',async function(){if(!audioCtx){audioCtx=new(AudioContext||webkitAudioContext)();await audioCtx.resume();playMelody();}});
-function playMelody(){if(!audioCtx)return;const now=audioCtx.currentTime;const notes=[659.25,783.99,880.00,1046.5,880.00,783.99];const gain=audioCtx.createGain();gain.connect(audioCtx.destination);gain.gain.value=0.18;notes.forEach((freq,i)=>{const o=audioCtx.createOscillator();o.type='sine';o.frequency.value=freq;const t=now+i*0.22;o.connect(gain);o.start(t);o.stop(t+0.18);});setTimeout(()=>{const bufferSize=audioCtx.sampleRate*0.3;const buffer=audioCtx.createBuffer(1,bufferSize,audioCtx.sampleRate);const data=buffer.getChannelData(0);for(let i=0;i<bufferSize;i++)data[i]=(Math.random()*2-1)*(1-i/bufferSize)*0.6;const src=audioCtx.createBufferSource();src.buffer=buffer;const g=audioCtx.createGain();g.gain.value=0.14;src.connect(g);g.connect(audioCtx.destination);src.start();},notes.length*220);}
-setTimeout(()=>{document.title="Happy 12th Birthday Ananya!";},900);
-(function loopAuto(){requestAnimationFrame(loopAuto);})();
+function explode(x,y,color){const count=36+Math.floor(Math.random()*18);for(let i=0;i<count;i++){const ang=Math.random()*Math.PI*2;const speed=2+Math.random()*6;particles.push({x,y,vx:Math.cos(ang)*speed,vy:Math.sin(ang)*speed,life:0,color});}}
+function updateFireworks(){fctx.clearRect(0,0,fw.width,fw.height);for(let i=rockets.length-1;i>=0;i--){const r=rockets[i];r.x+=r.vx;r.y+=r.vy;r.vy+=0.18;r.life++;fctx.beginPath();fctx.moveTo(r.x,r.y);fctx.lineTo(r.x,r.y+10);fctx.strokeStyle='rgba(255,255,255,0.9)';fctx.lineWidth=2;fctx.stroke();if(r.vy>=-2||r.y<r.ty){explode(r.x,r.y,`hsl(${Math.floor(Math.random()*360)},80%,60%)`);rockets.splice(i,1);}}for(let i=particles.length-1;i>=0;i--){const p=particles[i];p.x+=p.vx*DPR;p.y+=p.vy*DPR;p.vy+=0.08;p.life++;const alpha=Math.max(0,1-p.life/90);fctx.beginPath();fctx.arc(p.x,p.y,2.6,0,Math.PI*2);fctx.fillStyle=`rgba(${hslToRgb(p.color)},${alpha})`;fctx.fill();if(p.life>120) particles.splice(i,1);}requestAnimationFrame(updateFireworks);} updateFireworks();
+function hslToRgb(hsl){const m=/hsl\((\d+),\s*(\d+)%?,\s*(\d+)%?\)/.exec(hsl);if(!m)return '255,255,255';const h=+m[1],s=+m[2]/100,l=+m[3]/100;const a=s*Math.min(l,1-l);const f=n=>{const k=(n+h/30)%12;const color=l-a*Math.max(Math.min(k-3,9-k,1),-1);return Math.round(255*color);};return `${f(0)},${f(8)},${f(4)}`;}
+
+// --- balloons (simple physics on separate canvas) ---
+const bctx=balloonsCanvas.getContext('2d'); let balloons=[];
+function spawnBalloons(n=6){for(let i=0;i<n;i++){balloons.push({x:Math.random()*balloonsCanvas.width,y:balloonsCanvas.height+100+Math.random()*200,vx:(Math.random()-0.5)*0.6,vy:-3-Math.random()*2,size:60+Math.random()*40,color:`hsl(${Math.floor(Math.random()*360)},80%,65%)`,pop:false,life:0})}}
+function updateBalloons(){bctx.clearRect(0,0,balloonsCanvas.width,balloonsCanvas.height); for(let i=balloons.length-1;i>=0;i--){const p=balloons[i]; if(p.pop){balloons.splice(i,1);continue;} p.x+=p.vx*DPR; p.y+=p.vy*DPR; p.vy+=-0.001; p.life++; // slight upward
+ // draw balloon
+ bctx.save(); bctx.translate(p.x,p.y); bctx.beginPath(); bctx.ellipse(0,0,p.size*0.7,p.size,0,0,Math.PI*2); bctx.fillStyle=p.color; bctx.fill(); bctx.fillStyle='rgba(255,255,255,0.15)'; bctx.ellipse(-p.size*0.25,-p.size*0.25,p.size*0.15,p.size*0.08,0,0,Math.PI*2); bctx.fill(); // string
+ bctx.beginPath(); bctx.moveTo(0,p.size); bctx.lineTo(0,p.size+40); bctx.strokeStyle='rgba(255,255,255,0.06)'; bctx.lineWidth=2; bctx.stroke(); bctx.restore(); if(p.y<-200||p.life>2000) balloons.splice(i,1);} requestAnimationFrame(updateBalloons);} updateBalloons();
+
+// click to pop balloons
+balloonsCanvas.addEventListener('click',(e)=>{const x=e.clientX*DPR,y=e.clientY*DPR;for(let i=balloons.length-1;i>=0;i--){const b=balloons[i];const dx=(b.x-x),dy=(b.y-y);if(Math.sqrt(dx*dx+dy*dy)<b.size*0.8){b.pop=true; // small pop particle
+ for(let k=0;k<12;k++)particles.push({x:b.x,y:b.y,vx:(Math.random()-0.5)*6,vy:(Math.random()-0.5)*6,life:0,color:b.color}); playPop(); break;}}});
+
+function playPop(){if(!audioCtx) return; const now=audioCtx.currentTime; const o=audioCtx.createOscillator(); const g=audioCtx.createGain(); o.type='sine'; o.frequency.value=600+Math.random()*400; g.gain.value=0.08; o.connect(g); g.connect(audioCtx.destination); o.start(now); o.frequency.exponentialRampToValueAtTime(120, now+0.14); g.gain.exponentialRampToValueAtTime(0.001, now+0.14); o.stop(now+0.16);}
+
+// --- AFK hype sequence ---
+function hypeSequence(){spawnConfetti(110); for(let i=0;i<26;i++){setTimeout(()=>launchFirework(Math.random()*innerWidth,Math.random()*innerHeight*0.45+30),i*220);} spawnBalloons(5);} setInterval(()=>{if(Math.random()<0.25) hypeSequence();},22000);
+
+// start small on load
+hypeSequence();
+
+// --- UI behavior ---
+const replayBtn=document.getElementById('replayBtn'); const burstBtn=document.getElementById('burstBtn'); const openCard=document.getElementById('openCard'); const cardModal=document.getElementById('cardModal'); const closeCard=document.getElementById('closeCard'); const popBalloons=document.getElementById('popBalloons'); const asmrBtn=document.getElementById('asmrBtn');
+
+burstBtn.addEventListener('click',()=>{spawnConfetti(200);for(let i=0;i<28;i++)launchFirework(Math.random()*innerWidth,Math.random()*innerHeight*0.45+30);});
+openCard.addEventListener('click',()=>{cardModal.classList.add('show'); pauseASMRForTTS();}); closeCard.addEventListener('click',()=>{cardModal.classList.remove('show');});
+popBalloons.addEventListener('click',()=>{spawnBalloons(8);});
+
+// replay with 5s countdown + full celebration
+function startFullReplay(){// create countdown
+ let cd=document.getElementById('countdownOverlay'); if(!cd){cd=document.createElement('div');cd.id='countdownOverlay';cd.className='countdown';document.body.appendChild(cd);} cd.textContent='5'; cd.style.display='flex'; let t=5; const int=setInterval(()=>{t--; if(t>0) cd.textContent=t; else{clearInterval(int); cd.style.display='none'; cd.remove(); // reset
+ rockets=[];particles=[];confettis=[];balloons=[];
+ // big party
+ hypeSequence(); spawnConfetti(360); for(let i=0;i<48;i++) launchFirework(Math.random()*innerWidth,Math.random()*innerHeight*0.45+30); // stagger sparkle
+ setTimeout(()=>spawnConfetti(300),800); setTimeout(()=>spawnConfetti(300),1400); playFullMelody(); } },1000);} 
+replayBtn.addEventListener('click',()=>{startFullReplay(); if(!audioCtx) initAudio();});
+
+// --- WebAudio ASMR-ish ambient + small melody ---
+let audioCtx=null; let ambientGain=null; let noiseNode=null; let melodyPlaying=false;
+function initAudio(){audioCtx=new (window.AudioContext||window.webkitAudioContext)(); // ambient gentle noise
+ ambientGain=audioCtx.createGain(); ambientGain.gain.value=0.02; ambientGain.connect(audioCtx.destination);
+ // create filtered noise
+ const bufferSize=2*audioCtx.sampleRate; const noiseBuffer=audioCtx.createBuffer(1,bufferSize,audioCtx.sampleRate); const output=noiseBuffer.getChannelData(0); for(let i=0;i<bufferSize;i++) output[i]=(Math.random()*2-1)*0.25; noiseNode=audioCtx.createBufferSource(); noiseNode.buffer=noiseBuffer; const noiseFilter=audioCtx.createBiquadFilter(); noiseFilter.type='lowpass'; noiseFilter.frequency.value=1200; noiseNode.loop=true; noiseNode.connect(noiseFilter); noiseFilter.connect(ambientGain); noiseNode.start(); }
+
+function toggleASMR(){ if(!audioCtx) initAudio(); if(ambientGain.gain.value>0.001){ ambientGain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.3); asmrBtn.textContent='ASMR: Off'; } else { ambientGain.gain.setTargetAtTime(0.02, audioCtx.currentTime, 0.3); asmrBtn.textContent='ASMR: On'; }}
+asmrBtn.addEventListener('click',()=>{toggleASMR(); });
+function pauseASMRForTTS(){if(audioCtx) ambientGain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.08);} 
+
+// small celebratory melody used on full replay
+function playFullMelody(){ if(!audioCtx) initAudio(); const now=audioCtx.currentTime; const notes=[523.25,659.25,783.99,1046.5,880.00,659.25]; const g=audioCtx.createGain(); g.gain.value=0.12; g.connect(audioCtx.destination); notes.forEach((n,i)=>{ const o=audioCtx.createOscillator(); o.type='sine'; o.frequency.value=n; o.connect(g); const t=now+i*0.25; o.start(t); o.stop(t+0.18); }); setTimeout(()=>{ // gentle noise burst
+ const bS=audioCtx.createBufferSource(); const buf=audioCtx.createBuffer(1, audioCtx.sampleRate*0.4, audioCtx.sampleRate); const d=buf.getChannelData(0); for(let i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*(1-i/d.length)*0.5; bS.buffer=buf; const gg=audioCtx.createGain(); gg.gain.value=0.08; bS.connect(gg); gg.connect(audioCtx.destination); bS.start(); }, notes.length*250); }
+
+// ensure user gesture to start audio
+window.addEventListener('pointerdown',()=>{ if(!audioCtx) initAudio();}, {once:true});
+
+// small pop sound used when balloons popped (already used in playPop)
+
+// accessibility: keyboard open/close card
+document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') cardModal.classList.remove('show'); if(e.key==='Enter' && document.activeElement===replayBtn) startFullReplay(); });
+
 </script>
 </body>
 </html>
