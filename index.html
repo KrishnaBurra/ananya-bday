@@ -46,15 +46,12 @@ canvas{position:fixed;inset:0;pointer-events:none;z-index:1;}
   <h1 class="headline">Happy 12th Birthday Ananya! 🎉</h1>
   <div class="card">
     <strong>Dear Ananya,</strong><br><br>
-    Wishing you the happiest birthday ever! Keep shining always 💫<br><br>
+    Wishing you the happiest birthday ever! I hope your day is full of fun, laughter, and all the good vibes. You’re officially 12 now — one step closer to being a teen, which is wild in the coolest way. Keep being your awesome self, keep shining, and never stop dreaming big because you’ve got so much ahead of you. 💫✨<br><br>
+    Hope this year brings you new adventures, great memories, and moments that make you smile every single day. You deserve nothing but the best.<br><br>
     <em>- Krishna & Charitha</em>
   </div>
 
-  <div id="ui">
-    <button class="btn" id="replayBtn">Replay ✨</button>
-    <button class="btn" id="burstBtn">Fireworks 🎇</button>
-    <button class="btn" id="balloonBtn">Balloons 🎈</button>
-  </div>
+  
 </div>
 
 <script>
@@ -116,9 +113,9 @@ function startFullReplay(){
 }
 
 // BUTTONS
-replayBtn.onclick=startFullReplay;
-burstBtn.onclick=()=>{spawnConfetti(5000);for(let i=0;i<20;i++) launchFirework(Math.random()*innerWidth,innerHeight*0.5);} 
-balloonBtn.onclick=spawnBalloons;
+
+for(let i=0;i<20;i++) launchFirework(Math.random()*innerWidth,innerHeight*0.5);} 
+
 
 // autoplay on load
 spawnConfetti(5000);
