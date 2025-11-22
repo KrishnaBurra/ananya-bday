@@ -118,8 +118,11 @@ for(let i=0;i<20;i++) launchFirework(Math.random()*innerWidth,innerHeight*0.5);}
 
 
 // autoplay on load
-spawnConfetti(5000);
-setTimeout(()=>spawnBalloons(),600);
+spawnConfetti(8000);
+setTimeout(()=>{
+  spawnBalloons();
+  for(let i=0;i<25;i++) launchFirework(Math.random()*innerWidth, innerHeight*0.4);
+},400);
 </script>
 
 </body>
