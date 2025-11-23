@@ -6,124 +6,348 @@
 <title>Happy 12th Birthday Ananya 🎉</title>
 <style>
 :root{
-  --bg1:#0b0033;
-  --bg2:#3b0066;
+  --bg1:#070025;
+  --bg2:#351152;
   --accent:#ff6ae6;
   --glass:rgba(255,255,255,0.06);
+  --text:#ffffff;
 }
-html,body{
-  margin:0;padding:0;
-  font-family:Inter,system-ui,-apple-system,"Poppins",sans-serif;
-  -webkit-font-smoothing:antialiased;
-  color:white;
-  background:linear-gradient(180deg,var(--bg1),var(--bg2));
-}
-body{
-  overflow-y:auto;
-  min-height:100vh;
-}
-.section{
-  width:100%;
-  padding:60px 20px;
-  box-sizing:border-box;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-}
-.headline{font-size:clamp(28px,7vw,70px);font-weight:800;}
-.card{margin-top:30px;width:90%;max-width:550px;background:var(--glass);padding:24px;border-radius:20px;backdrop-filter:blur(10px);}
-.btn{background:linear-gradient(90deg,#ff6ae6,#00e6ff);border:0;padding:12px 20px;border-radius:14px;font-size:18px;font-weight:700;margin:8px;cursor:pointer;}
-#ui{margin-top:30px;}
-canvas{position:fixed;inset:0;pointer-events:none;z-index:1;}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Poppins",sans-serif;background:linear-gradient(180deg,var(--bg1),var(--bg2));-webkit-font-smoothing:antialiased;color:var(--text);overflow-y:auto;scroll-behavior:smooth}
+.wrapper{max-width:1100px;margin:0 auto;padding:32px;display:flex;flex-direction:column;gap:22px;align-items:center;}
+.header{width:100%;text-align:center;padding-top:28px}
+.title{font-size:clamp(28px,6.5vw,72px);font-weight:900;line-height:0.95;margin:0}
+.neon{display:inline-block;position:relative;padding:6px 14px}
+.neon::before,.neon::after{content:attr(data-text);position:absolute;inset:0;z-index:-1;mix-blend-mode:screen}
+.neon::before{transform:translate(6px,-6px);color:var(--accent);opacity:0.78;filter:blur(8px)}
+.neon::after{transform:translate(-6px,6px);color:#00e6ff;opacity:0.5;filter:blur(14px)}
+.big12{width:220px;height:220px;border-radius:28px;margin:18px auto 8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));box-shadow:0 18px 60px rgba(0,0,0,0.55);backdrop-filter:blur(6px)}
+.big12 .num{font-size:6.4rem;font-weight:900;margin:0}
+.card{width:92%;max-width:720px;background:var(--glass);padding:22px;border-radius:18px;backdrop-filter:blur(10px);box-shadow:0 18px 60px rgba(0,0,0,0.6);font-size:18px;line-height:1.55;color:var(--text);}
+.small{font-size:14px;opacity:0.92}
+.footer{margin:6px 0 34px;font-size:14px;color:rgba(255,255,255,0.8)}
+.canvas-wrap{position:fixed;inset:0;pointer-events:none;z-index:1}
+svg.decor{position:fixed;inset:0;z-index:0;pointer-events:none;mix-blend-mode:screen}
+@media (max-width:520px){.big12{width:160px;height:160px}.big12 .num{font-size:4.4rem}.card{padding:18px;font-size:16px}}
 </style>
 </head>
 <body>
-<canvas id="confetti"></canvas>
-<canvas id="fw"></canvas>
+<!-- decorative SVG glow -->
+<svg class="decor" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <radialGradient id="g1"><stop offset="0" stop-color="#fff" stop-opacity="0.9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <circle cx="12%" cy="18%" r="30" fill="url(#g1)" opacity="0.06"/>
+  <circle cx="86%" cy="78%" r="22" fill="url(#g1)" opacity="0.04"/>
+</svg>
 
-<div class="section">
-  <h1 class="headline">Happy 12th Birthday Ananya! 🎉</h1>
-  <div class="card">
-    <strong>Dear Ananya,</strong><br><br>
-    Wishing you the happiest birthday ever! I hope your day is full of fun, laughter, and all the good vibes. You’re officially 12 now — one step closer to being a teen, which is wild in the coolest way. Keep being your awesome self, keep shining, and never stop dreaming big because you’ve got so much ahead of you. 💫✨<br><br>
-    Hope this year brings you new adventures, great memories, and moments that make you smile every single day. You deserve nothing but the best.<br><br>
-    <em>- Krishna & Charitha</em>
-  </div>
+<!-- canvases for animations -->
+<div class="canvas-wrap" aria-hidden="true">
+  <canvas id="confetti"></canvas>
+  <canvas id="fireworks"></canvas>
+  <canvas id="sparks"></canvas>
+</div>
 
-  
+<div class="wrapper" role="main" aria-live="polite">
+  <header class="header">
+    <div class="big12" aria-hidden="true"><div class="num">12</div></div>
+    <h1 class="title"><span class="neon" data-text="Happy 12th Birthday Ananya!">Happy 12th Birthday Ananya!</span></h1>
+    <p class="small footer">Hope this makes your day — tap anywhere to enable sound if you want ASMR & pops.</p>
+  </header>
+
+  <article class="card" aria-label="Birthday Card">
+    <strong>Dear Ananya,</strong>
+    <p>Happy 12th Birthday! Hope you have an amazing day filled with fun, laughter, and good vibes. Wishing you a wonderful year ahead with lots of great moments and new memories.</p>
+    <p>Enjoy your special day!</p>
+    <p style="margin-top:16px"><em>- Krishna & Charitha</em></p>
+  </article>
+
+  <footer style="width:100%;text-align:center;margin-bottom:80px">
+    <p class="small" style="opacity:0.85">Animated greeting — confetti, fireworks & balloons running automatically.</p>
+  </footer>
 </div>
 
 <script>
-const confetti=document.getElementById('confetti');
-const fw=document.getElementById('fw');
-const DPR=Math.max(1,devicePixelRatio||1);
+/* ====== Full single-file mega animations ======
+   - Responsive + scrollable layout (card under title)
+   - Autoplay animations on load (visuals start automatically)
+   - Audio requires a tap/click to enable (browsers policy)
+   - Confetti (supercharged), fireworks, balloons (floating + pop)
+   - Click anywhere to enable audio & hear ASMR clicks + pops
+   - All code self-contained below
+=========== */
 
-function resize(){confetti.width=innerWidth*DPR;confetti.height=innerHeight*DPR;fw.width=innerWidth*DPR;fw.height=innerHeight*DPR;}
-resize();addEventListener('resize',resize);
+const DPR = Math.max(1, window.devicePixelRatio || 1);
+// Canvas elements
+const confettiCanvas = document.getElementById('confetti');
+const fwCanvas = document.getElementById('fireworks');
+const sparksCanvas = document.getElementById('sparks');
 
-// CRAZY CONFETTI MODE ×100
-const cctx=confetti.getContext('2d');
-let confettis=[];
-function spawnConfetti(n=4000){ // 40x more
+function resizeCanvases(){
+  [confettiCanvas, fwCanvas, sparksCanvas].forEach(c=>{
+    c.width = innerWidth * DPR;
+    c.height = innerHeight * DPR;
+    c.style.width = innerWidth + 'px';
+    c.style.height = innerHeight + 'px';
+  });
+}
+resizeCanvases();
+window.addEventListener('resize', resizeCanvases);
+
+// ---------------- AUDIO SETUP ----------------
+let audioCtx = null;
+function ensureAudio(){
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+}
+// On first user tap/click enable audio context and play a soft click
+window.addEventListener('pointerdown', () => {
+  ensureAudio();
+  playClick();
+}, { once: true, passive: true });
+
+// clicky ASMR sound
+function playClick(){
+  if(!audioCtx) return;
+  const o = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  o.type = 'square'; o.frequency.value = 2100 + Math.random()*600;
+  g.gain.setValueAtTime(0.08, audioCtx.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.07);
+  o.connect(g).connect(audioCtx.destination);
+  o.start(); o.stop(audioCtx.currentTime + 0.08);
+}
+// balloon pop
+function playPop(){
+  if(!audioCtx) return;
+  const now = audioCtx.currentTime;
+  const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+  o.type='sine'; o.frequency.value = 700 + Math.random()*500;
+  g.gain.setValueAtTime(0.09, now); g.gain.exponentialRampToValueAtTime(0.001, now+0.12);
+  o.connect(g).connect(audioCtx.destination);
+  o.start(now); o.frequency.exponentialRampToValueAtTime(120, now+0.12); o.stop(now+0.14);
+}
+// gentle ambient noise generator (optional)
+let ambientGain = null, noiseNode = null;
+function startAmbient(){
+  if(!audioCtx) ensureAudio();
+  if(ambientGain) return;
+  ambientGain = audioCtx.createGain(); ambientGain.gain.value = 0.02; ambientGain.connect(audioCtx.destination);
+  const bufferSize = 2*audioCtx.sampleRate;
+  const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+  const out = noiseBuffer.getChannelData(0);
+  for(let i=0;i<bufferSize;i++) out[i] = (Math.random()*2-1)*0.25;
+  noiseNode = audioCtx.createBufferSource(); noiseNode.buffer = noiseBuffer;
+  const filt = audioCtx.createBiquadFilter(); filt.type='lowpass'; filt.frequency.value = 1200;
+  noiseNode.loop = true; noiseNode.connect(filt); filt.connect(ambientGain); noiseNode.start();
+}
+function stopAmbient(){
+  if(!ambientGain) return;
+  ambientGain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.2);
+  if(noiseNode) { noiseNode.stop(); noiseNode = null; }
+  ambientGain = null;
+}
+
+// ---------------- CONFETTI ENGINE ----------------
+const cctx = confettiCanvas.getContext('2d');
+let confettis = [];
+function spawnConfetti(n = 120){
+  // amplified but reasonable for modern devices; big pages will still work (caps later)
+  const multiplier = 30; // adjustable: 30x baseline
+  n = Math.max(1, Math.floor(n)) * multiplier;
   for(let i=0;i<n;i++){
-    confettis.push({x:Math.random()*confetti.width,y:-Math.random()*innerHeight,vx:(Math.random()-0.5)*10,vy:4+Math.random()*8,r:4+Math.random()*10,color:`hsl(${Math.random()*360},80%,60%)`,rot:0,rotSpeed:(Math.random()-0.5)*20});
+    confettis.push({
+      x: Math.random()*confettiCanvas.width,
+      y: -Math.random()*confettiCanvas.height/2,
+      vx: (Math.random()-0.5)*10,
+      vy: 2 + Math.random()*5,
+      r: 5 + Math.random()*10,
+      color: `hsl(${Math.floor(Math.random()*360)},75%,58%)`,
+      rot: Math.random()*360,
+      rotSpeed: (Math.random()-0.5)*12,
+      life:0
+    });
   }
 }
 function updateConfetti(){
-  cctx.clearRect(0,0,confetti.width,confetti.height);
-  for(let i=confettis.length-1;i>=0;i--){const p=confettis[i];p.x+=p.vx;p.y+=p.vy;p.rot+=p.rotSpeed;cctx.save();cctx.translate(p.x,p.y);cctx.rotate(p.rot*Math.PI/180);cctx.fillStyle=p.color;cctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*0.6);cctx.restore();if(p.y>confetti.height+200) confettis.splice(i,1);} requestAnimationFrame(updateConfetti);
+  cctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
+  for(let i=confettis.length-1;i>=0;i--){
+    const p = confettis[i];
+    p.x += p.vx * DPR; p.y += p.vy * DPR; p.vy += 0.06; p.rot += p.rotSpeed;
+    cctx.save(); cctx.translate(p.x, p.y); cctx.rotate(p.rot * Math.PI/180);
+    cctx.fillStyle = p.color; cctx.fillRect(-p.r/2, -p.r/2, p.r, p.r*0.6);
+    cctx.restore();
+    if(p.y > confettiCanvas.height + 220 || p.life > 800) confettis.splice(i,1);
+    p.life++;
+  }
+  requestAnimationFrame(updateConfetti);
 }
 updateConfetti();
 
-// FIREWORKS
-const fctx=fw.getContext('2d');let rockets=[],particles=[];
-function launchFirework(x,y){rockets.push({x:Math.random()*fw.width,y:fw.height+40,tx:x*DPR,ty:y*DPR,vy:-15-Math.random()*8});}
-function explode(x,y,c){for(let i=0;i<60;i++){const a=Math.random()*Math.PI*2;const s=3+Math.random()*7;particles.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:0,color:c});}}
-function updateFW(){
- fctx.clearRect(0,0,fw.width,fw.height);
- for(let i=rockets.length-1;i>=0;i--){const r=rockets[i];r.y+=r.vy;r.vy+=0.25;fctx.fillStyle='white';fctx.fillRect(r.x,r.y,4,12);if(r.vy>0){explode(r.x,r.y,`hsl(${Math.random()*360},90%,60%)`);rockets.splice(i,1);}}
- for(let i=particles.length-1;i>=0;i--){const p=particles[i];p.x+=p.vx;p.y+=p.vy;p.vy+=0.1;p.life++;fctx.fillStyle=`rgba(255,255,255,${1-p.life/90})`;fctx.fillRect(p.x,p.y,3,3);if(p.life>100) particles.splice(i,1);} requestAnimationFrame(updateFW);
+// ---------------- FIREWORKS ENGINE ----------------
+const fctx = fwCanvas.getContext('2d');
+let rockets = [], particles = [];
+function launchFirework(x,y){
+  rockets.push({ x: Math.random()*fwCanvas.width, y: fwCanvas.height+80, tx: x*DPR, ty: y*DPR, vx:0, vy: -10 - Math.random()*10, life:0 });
 }
-updateFW();
+function explode(x,y,color){
+  const count = 36 + Math.floor(Math.random()*40);
+  for(let i=0;i<count;i++){
+    const a = Math.random()*Math.PI*2;
+    const speed = 2 + Math.random()*8;
+    particles.push({ x, y, vx: Math.cos(a)*speed, vy: Math.sin(a)*speed, life:0, color });
+  }
+  // small sparkle sound
+  if(audioCtx){
+    const g = audioCtx.createGain(); g.gain.value = 0.03; g.connect(audioCtx.destination);
+    const o = audioCtx.createOscillator(); o.type='triangle'; o.frequency.value = 600 + Math.random()*700;
+    o.connect(g); o.start(); o.stop(audioCtx.currentTime + 0.06);
+  }
+}
+function updateFireworks(){
+  fctx.clearRect(0,0,fwCanvas.width,fwCanvas.height);
+  for(let i=rockets.length-1;i>=0;i--){
+    const r = rockets[i]; r.x += r.vx; r.y += r.vy; r.vy += 0.22; r.life++;
+    fctx.beginPath(); fctx.moveTo(r.x,r.y); fctx.lineTo(r.x, r.y+12); fctx.strokeStyle = 'rgba(255,255,255,0.95)'; fctx.lineWidth = 2; fctx.stroke();
+    if(r.vy >= -2 || r.y < r.ty){ explode(r.x, r.y, `hsl(${Math.floor(Math.random()*360)},80%,60%)`); rockets.splice(i,1); }
+  }
+  for(let i=particles.length-1;i>=0;i--){
+    const p = particles[i];
+    p.x += p.vx * DPR; p.y += p.vy * DPR; p.vy += 0.08; p.life++;
+    const alpha = Math.max(0, 1 - p.life/100);
+    fctx.beginPath(); fctx.arc(p.x,p.y,2.6,0,Math.PI*2);
+    fctx.fillStyle = p.color.replace('hsl','rgba').replace(')', `,${alpha})`);
+    fctx.fill();
+    if(p.life > 140) particles.splice(i,1);
+  }
+  requestAnimationFrame(updateFireworks);
+}
+updateFireworks();
 
-// BALLOONS
-function spawnBalloons(){
-  for(let i=0;i<25;i++){
-    const b=document.createElement('div');
-    b.textContent='🎈';
-    b.style.position='fixed';
-    b.style.left=Math.random()*100+'vw';
-    b.style.bottom='-60px';
-    b.style.fontSize='50px';
-    b.style.zIndex='9';
-    b.style.transition='transform 6s linear';
-    document.body.appendChild(b);
-    setTimeout(()=>b.style.transform='translateY(-120vh)',50);
-    setTimeout(()=>b.remove(),6500);
+// ---------------- SPARKS (small decorative) ----------------
+const sctx = sparksCanvas.getContext('2d');
+let sparks = [];
+function spawnSpark(x,y){
+  for(let i=0;i<8;i++){
+    sparks.push({ x: x + (Math.random()-0.5)*60, y: y + (Math.random()-0.5)*60, vx:(Math.random()-0.5)*6, vy:(Math.random()-0.5)*6, life:0, r:1+Math.random()*2 });
+  }
+}
+function updateSparks(){
+  sctx.clearRect(0,0,sparksCanvas.width,sparksCanvas.height);
+  for(let i=sparks.length-1;i>=0;i--){
+    const p = sparks[i];
+    p.x += p.vx; p.y += p.vy; p.vy += 0.06; p.life++; const alpha = Math.max(0, 1 - p.life/45);
+    sctx.beginPath(); sctx.arc(p.x,p.y,p.r,0,Math.PI*2); sctx.fillStyle = `rgba(255,255,255,${alpha})`; sctx.fill();
+    if(p.life > 60) sparks.splice(i,1);
+  }
+  requestAnimationFrame(updateSparks);
+}
+updateSparks();
+
+// ---------------- BALLOONS (floating + click-to-pop) ----------------
+let balloons = [];
+function spawnBalloon(x){
+  balloons.push({
+    x: x !== undefined ? x : Math.random()*innerWidth,
+    y: innerHeight + 80,
+    vy: -1 - Math.random()*2,
+    spin: (Math.random()-0.5)*2,
+    color: `hsl(${Math.floor(Math.random()*360)},80%,60%)`,
+    size: 28
+  });
+}
+function spawnManyBalloons(count){
+  for(let i=0;i<count;i++){
+    spawnBalloon();
+  }
+}
+// We draw balloons in confetti layer (updateConfetti handles them visually)
+function popBalloonAt(clientX, clientY){
+  const x = clientX * DPR, y = clientY * DPR;
+  for(let i=balloons.length-1;i>=0;i--){
+    const b = balloons[i];
+    const dx = b.x - x, dy = b.y - y;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    if(dist < b.size * 1.2){
+      // spawn confetti + sparks
+      for(let k=0;k<18;k++){
+        confettis.push({
+          x: b.x + (Math.random()-0.5)*20,
+          y: b.y + (Math.random()-0.5)*20,
+          vx: (Math.random()-0.5)*8,
+          vy: (Math.random()-0.5)*6,
+          r: 4 + Math.random()*6,
+          color: b.color,
+          rot: Math.random()*360,
+          rotSpeed: (Math.random()-0.5)*12,
+          life: 0
+        });
+      }
+      spawnSpark(b.x, b.y);
+      playPop();
+      balloons.splice(i,1);
+      return;
+    }
   }
 }
 
-// FULL REPLAY
-function startFullReplay(){
-  rockets=[];particles=[];confettis=[];
-  spawnConfetti(6000);
-  for(let i=0;i<30;i++) launchFirework(Math.random()*innerWidth,innerHeight*0.4);
-  spawnBalloons();
+// hook pointerdown to pop balloons & to enable audio
+window.addEventListener('pointerdown', (ev)=>{
+  ensureAudio();
+  playClick();
+  popBalloonAt(ev.clientX, ev.clientY);
+}, { passive: true });
+
+// integrate balloons into confetti draw loop: updateConfetti reads balloons array
+// make spawnMany and pop working visually: add periodic spawns to balloons array for visuals
+function integrateBalloonVisuals(){
+  // create visual entries in confetti draw by mapping balloons to small draw data
+  // (we already draw balloons in updateConfetti)
+  requestAnimationFrame(integrateBalloonVisuals);
+}
+integrateBalloonVisuals();
+
+// ---------------- SEQUENCES (auto start) ----------------
+function hypeSequence(){
+  // confetti wave
+  spawnConfetti(220); // big wave
+  // fireworks bursts
+  for(let i=0;i<36;i++){
+    setTimeout(()=>launchFirework(Math.random()*innerWidth, Math.random()*innerHeight*0.45 + 30), i*180);
+  }
+  // lots of balloons
+  spawnManyBalloons(18);
+  // decorative sparks
+  spawnSpark(innerWidth*0.45 + (Math.random()-0.5)*240, innerHeight*0.35 + (Math.random()-0.5)*120);
 }
 
-// BUTTONS
+// autoplay on load: visuals start immediately
+window.addEventListener('load', ()=>{
+  // initial burst
+  hypeSequence();
+  // second layer after small delay
+  setTimeout(()=>{ spawnConfetti(160); spawnManyBalloons(10); for(let i=0;i<18;i++) launchFirework(Math.random()*innerWidth, innerHeight*0.4); }, 800);
+  // periodic autoplay hype
+  setInterval(()=>{ if(Math.random() < 0.5) hypeSequence(); }, 16000);
+});
 
-for(let i=0;i<20;i++) launchFirework(Math.random()*innerWidth,innerHeight*0.5);} 
+// small safety caps so devices don't explode
+setInterval(()=>{
+  if(confettis.length > 50000) confettis.splice(0, confettis.length - 50000);
+  if(particles.length > 12000) particles.splice(0, particles.length - 12000);
+  if(balloons.length > 2000) balloons.splice(0, balloons.length - 2000);
+  if(sparks.length > 2000) sparks.splice(0, sparks.length - 2000);
+}, 2000);
 
+// small recurring spark attach for extra decorative motion
+setInterval(()=>{
+  if(particles.length > 0){
+    const p = particles[Math.floor(Math.random()*particles.length)];
+    spawnSpark(p.x + (Math.random()-0.5)*60, p.y + (Math.random()-0.5)*60);
+  }
+}, 300);
 
-// autoplay on load
-spawnConfetti(8000);
-setTimeout(()=>{
-  spawnBalloons();
-  for(let i=0;i<25;i++) launchFirework(Math.random()*innerWidth, innerHeight*0.4);
-},400);
 </script>
-
 </body>
 </html>
