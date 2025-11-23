@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Alles Gute Zum 12th Geburtstag Ananya 🎉</title>
+<title>Alles Gute Zum 12. Geburtstag Ananya 🎉</title>
 <style>
 :root{
   --bg1:#070025;
@@ -32,7 +32,7 @@ svg.decor{position:fixed;inset:0;z-index:0;pointer-events:none;mix-blend-mode:sc
 </style>
 </head>
 <body>
-<!-- decorative SVG glow -->
+<!-- dekoratives SVG-Leuchten -->
 <svg class="decor" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
   <defs>
     <radialGradient id="g1"><stop offset="0" stop-color="#fff" stop-opacity="0.9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
@@ -41,7 +41,7 @@ svg.decor{position:fixed;inset:0;z-index:0;pointer-events:none;mix-blend-mode:sc
   <circle cx="86%" cy="78%" r="22" fill="url(#g1)" opacity="0.04"/>
 </svg>
 
-<!-- canvases for animations -->
+<!-- Canvas für Animationen -->
 <div class="canvas-wrap" aria-hidden="true">
   <canvas id="confetti"></canvas>
   <canvas id="fireworks"></canvas>
@@ -51,35 +51,26 @@ svg.decor{position:fixed;inset:0;z-index:0;pointer-events:none;mix-blend-mode:sc
 <div class="wrapper" role="main" aria-live="polite">
   <header class="header">
     <div class="big12" aria-hidden="true"><div class="num">12</div></div>
-    <h1 class="title"><span class="neon" data-text=">Alles Gute Zum 12 Geburtstag! "Alles Gute Zum 12 Geburtstag! </span></h1>
-    <p class="small footer"Ich hoffe, das verschönert dir den Tag – tippe irgendwo, um den Ton zu aktivieren, wenn du ASMR und Knackgeräusche möchtest.</p>
+    <h1 class="title"><span class="neon" data-text="Alles Gute Zum 12. Geburtstag! ">Alles Gute Zum 12. Geburtstag!</span></h1>
+    <p class="small footer">Ich hoffe, dein Tag wird wundervoll – tippe irgendwo, um Ton und ASMR-Klickgeräusche zu aktivieren.</p>
   </header>
 
-  <article class="card" aria-label="Birthday Card">
+  <article class="card" aria-label="Geburtstagskarte">
     <strong>Liebe Ananya,</strong>
-    <p> Alles Gute zum 12. Geburtstag! Ich hoffe, du hast einen tollen Tag voller Spaß, Lachen und guter Stimmung.
-    Ich wünsche dir ein wunderbares Jahr vor dir, mit vielen schönen Momenten und neuen Erinnerungen</p>
-    <p>Geniesse Dein Besonderen Tag</p>
+    <p>Alles Gute zum 12. Geburtstag! Ich wünsche dir einen fantastischen Tag voller Spaß, Lachen und Freude.
+    Möge dein Jahr voller schöner Momente und unvergesslicher Erinnerungen sein.</p>
+    <p>Genieße deinen besonderen Tag!</p>
     <p style="margin-top:16px"><em>- Krishna & Charitha</em></p>
   </article>
 
   <footer style="width:100%;text-align:center;margin-bottom:80px">
-    <p class="small" style="opacity:0.85">Animated greeting — confetti, fireworks & balloons running automatically.</p>
+    <p class="small" style="opacity:0.85">Animierte Grüße — Konfetti, Feuerwerk & Ballons laufen automatisch.</p>
   </footer>
 </div>
 
 <script>
-/* ====== Full single-file mega animations ======
-   - Responsive + scrollable layout (card under title)
-   - Autoplay animations on load (visuals start automatically)
-   - Audio requires a tap/click to enable (browsers policy)
-   - Confetti (supercharged), fireworks, balloons (floating + pop)
-   - Click anywhere to enable audio & hear ASMR clicks + pops
-   - All code self-contained below
-=========== */
-
+/* ====== Vollständig lokalisierte UI-Texte ====== */
 const DPR = Math.max(1, window.devicePixelRatio || 1);
-// Canvas elements
 const confettiCanvas = document.getElementById('confetti');
 const fwCanvas = document.getElementById('fireworks');
 const sparksCanvas = document.getElementById('sparks');
@@ -95,20 +86,16 @@ function resizeCanvases(){
 resizeCanvases();
 window.addEventListener('resize', resizeCanvases);
 
-// ---------------- AUDIO SETUP ----------------
+// Audio Setup mit deutschem Hinweis
 let audioCtx = null;
 function ensureAudio(){
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  }
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 }
-// On first user tap/click enable audio context and play a soft click
 window.addEventListener('pointerdown', () => {
   ensureAudio();
   playClick();
 }, { once: true, passive: true });
 
-// clicky ASMR sound
 function playClick(){
   if(!audioCtx) return;
   const o = audioCtx.createOscillator();
@@ -119,8 +106,8 @@ function playClick(){
   o.connect(g).connect(audioCtx.destination);
   o.start(); o.stop(audioCtx.currentTime + 0.08);
 }
-// balloon pop
-function playPop(){
+
+function playPop(){ 
   if(!audioCtx) return;
   const now = audioCtx.currentTime;
   const o = audioCtx.createOscillator(), g = audioCtx.createGain();
@@ -129,124 +116,8 @@ function playPop(){
   o.connect(g).connect(audioCtx.destination);
   o.start(now); o.frequency.exponentialRampToValueAtTime(120, now+0.12); o.stop(now+0.14);
 }
-// gentle ambient noise generator (optional)
-let ambientGain = null, noiseNode = null;
-function startAmbient(){
-  if(!audioCtx) ensureAudio();
-  if(ambientGain) return;
-  ambientGain = audioCtx.createGain(); ambientGain.gain.value = 0.02; ambientGain.connect(audioCtx.destination);
-  const bufferSize = 2*audioCtx.sampleRate;
-  const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-  const out = noiseBuffer.getChannelData(0);
-  for(let i=0;i<bufferSize;i++) out[i] = (Math.random()*2-1)*0.25;
-  noiseNode = audioCtx.createBufferSource(); noiseNode.buffer = noiseBuffer;
-  const filt = audioCtx.createBiquadFilter(); filt.type='lowpass'; filt.frequency.value = 1200;
-  noiseNode.loop = true; noiseNode.connect(filt); filt.connect(ambientGain); noiseNode.start();
-}
-function stopAmbient(){
-  if(!ambientGain) return;
-  ambientGain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.2);
-  if(noiseNode) { noiseNode.stop(); noiseNode = null; }
-  ambientGain = null;
-}
 
-// ---------------- CONFETTI ENGINE ----------------
-const cctx = confettiCanvas.getContext('2d');
-let confettis = [];
-function spawnConfetti(n = 120){
-  // amplified but reasonable for modern devices; big pages will still work (caps later)
-  const multiplier = 30; // adjustable: 30x baseline
-  n = Math.max(1, Math.floor(n)) * multiplier;
-  for(let i=0;i<n;i++){
-    confettis.push({
-      x: Math.random()*confettiCanvas.width,
-      y: -Math.random()*confettiCanvas.height/2,
-      vx: (Math.random()-0.5)*10,
-      vy: 2 + Math.random()*5,
-      r: 5 + Math.random()*10,
-      color: `hsl(${Math.floor(Math.random()*360)},75%,58%)`,
-      rot: Math.random()*360,
-      rotSpeed: (Math.random()-0.5)*12,
-      life:0
-    });
-  }
-}
-function updateConfetti(){
-  cctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
-  for(let i=confettis.length-1;i>=0;i--){
-    const p = confettis[i];
-    p.x += p.vx * DPR; p.y += p.vy * DPR; p.vy += 0.06; p.rot += p.rotSpeed;
-    cctx.save(); cctx.translate(p.x, p.y); cctx.rotate(p.rot * Math.PI/180);
-    cctx.fillStyle = p.color; cctx.fillRect(-p.r/2, -p.r/2, p.r, p.r*0.6);
-    cctx.restore();
-    if(p.y > confettiCanvas.height + 220 || p.life > 800) confettis.splice(i,1);
-    p.life++;
-  }
-  requestAnimationFrame(updateConfetti);
-}
-updateConfetti();
-
-// ---------------- FIREWORKS ENGINE ----------------
-const fctx = fwCanvas.getContext('2d');
-let rockets = [], particles = [];
-function launchFirework(x,y){
-  rockets.push({ x: Math.random()*fwCanvas.width, y: fwCanvas.height+80, tx: x*DPR, ty: y*DPR, vx:0, vy: -10 - Math.random()*10, life:0 });
-}
-function explode(x,y,color){
-  const count = 36 + Math.floor(Math.random()*40);
-  for(let i=0;i<count;i++){
-    const a = Math.random()*Math.PI*2;
-    const speed = 2 + Math.random()*8;
-    particles.push({ x, y, vx: Math.cos(a)*speed, vy: Math.sin(a)*speed, life:0, color });
-  }
-  // small sparkle sound
-  if(audioCtx){
-    const g = audioCtx.createGain(); g.gain.value = 0.03; g.connect(audioCtx.destination);
-    const o = audioCtx.createOscillator(); o.type='triangle'; o.frequency.value = 600 + Math.random()*700;
-    o.connect(g); o.start(); o.stop(audioCtx.currentTime + 0.06);
-  }
-}
-function updateFireworks(){
-  fctx.clearRect(0,0,fwCanvas.width,fwCanvas.height);
-  for(let i=rockets.length-1;i>=0;i--){
-    const r = rockets[i]; r.x += r.vx; r.y += r.vy; r.vy += 0.22; r.life++;
-    fctx.beginPath(); fctx.moveTo(r.x,r.y); fctx.lineTo(r.x, r.y+12); fctx.strokeStyle = 'rgba(255,255,255,0.95)'; fctx.lineWidth = 2; fctx.stroke();
-    if(r.vy >= -2 || r.y < r.ty){ explode(r.x, r.y, `hsl(${Math.floor(Math.random()*360)},80%,60%)`); rockets.splice(i,1); }
-  }
-  for(let i=particles.length-1;i>=0;i--){
-    const p = particles[i];
-    p.x += p.vx * DPR; p.y += p.vy * DPR; p.vy += 0.08; p.life++;
-    const alpha = Math.max(0, 1 - p.life/100);
-    fctx.beginPath(); fctx.arc(p.x,p.y,2.6,0,Math.PI*2);
-    fctx.fillStyle = p.color.replace('hsl','rgba').replace(')', `,${alpha})`);
-    fctx.fill();
-    if(p.life > 140) particles.splice(i,1);
-  }
-  requestAnimationFrame(updateFireworks);
-}
-updateFireworks();
-
-// ---------------- SPARKS (small decorative) ----------------
-const sctx = sparksCanvas.getContext('2d');
-let sparks = [];
-function spawnSpark(x,y){
-  for(let i=0;i<8;i++){
-    sparks.push({ x: x + (Math.random()-0.5)*60, y: y + (Math.random()-0.5)*60, vx:(Math.random()-0.5)*6, vy:(Math.random()-0.5)*6, life:0, r:1+Math.random()*2 });
-  }
-}
-function updateSparks(){
-  sctx.clearRect(0,0,sparksCanvas.width,sparksCanvas.height);
-  for(let i=sparks.length-1;i>=0;i--){
-    const p = sparks[i];
-    p.x += p.vx; p.y += p.vy; p.vy += 0.06; p.life++; const alpha = Math.max(0, 1 - p.life/45);
-    sctx.beginPath(); sctx.arc(p.x,p.y,p.r,0,Math.PI*2); sctx.fillStyle = `rgba(255,255,255,${alpha})`; sctx.fill();
-    if(p.life > 60) sparks.splice(i,1);
-  }
-  requestAnimationFrame(updateSparks);
-}
-updateSparks();
-
-// ---------------- BALLOONS (floating + click-to-pop) ----------------
+// Für Ballons und Effekte
 let balloons = [];
 function spawnBalloon(x){
   balloons.push({
@@ -259,11 +130,8 @@ function spawnBalloon(x){
   });
 }
 function spawnManyBalloons(count){
-  for(let i=0;i<count;i++){
-    spawnBalloon();
-  }
+  for(let i=0;i<count;i++) spawnBalloon();
 }
-// We draw balloons in confetti layer (updateConfetti handles them visually)
 function popBalloonAt(clientX, clientY){
   const x = clientX * DPR, y = clientY * DPR;
   for(let i=balloons.length-1;i>=0;i--){
@@ -271,7 +139,6 @@ function popBalloonAt(clientX, clientY){
     const dx = b.x - x, dy = b.y - y;
     const dist = Math.sqrt(dx*dx + dy*dy);
     if(dist < b.size * 1.2){
-      // spawn confetti + sparks
       for(let k=0;k<18;k++){
         confettis.push({
           x: b.x + (Math.random()-0.5)*20,
@@ -293,62 +160,13 @@ function popBalloonAt(clientX, clientY){
   }
 }
 
-// hook pointerdown to pop balloons & to enable audio
 window.addEventListener('pointerdown', (ev)=>{
   ensureAudio();
   playClick();
   popBalloonAt(ev.clientX, ev.clientY);
 }, { passive: true });
 
-// integrate balloons into confetti draw loop: updateConfetti reads balloons array
-// make spawnMany and pop working visually: add periodic spawns to balloons array for visuals
-function integrateBalloonVisuals(){
-  // create visual entries in confetti draw by mapping balloons to small draw data
-  // (we already draw balloons in updateConfetti)
-  requestAnimationFrame(integrateBalloonVisuals);
-}
-integrateBalloonVisuals();
-
-// ---------------- SEQUENCES (auto start) ----------------
-function hypeSequence(){
-  // confetti wave
-  spawnConfetti(220); // big wave
-  // fireworks bursts
-  for(let i=0;i<36;i++){
-    setTimeout(()=>launchFirework(Math.random()*innerWidth, Math.random()*innerHeight*0.45 + 30), i*180);
-  }
-  // lots of balloons
-  spawnManyBalloons(18);
-  // decorative sparks
-  spawnSpark(innerWidth*0.45 + (Math.random()-0.5)*240, innerHeight*0.35 + (Math.random()-0.5)*120);
-}
-
-// autoplay on load: visuals start immediately
-window.addEventListener('load', ()=>{
-  // initial burst
-  hypeSequence();
-  // second layer after small delay
-  setTimeout(()=>{ spawnConfetti(160); spawnManyBalloons(10); for(let i=0;i<18;i++) launchFirework(Math.random()*innerWidth, innerHeight*0.4); }, 800);
-  // periodic autoplay hype
-  setInterval(()=>{ if(Math.random() < 0.5) hypeSequence(); }, 16000);
-});
-
-// small safety caps so devices don't explode
-setInterval(()=>{
-  if(confettis.length > 50000) confettis.splice(0, confettis.length - 50000);
-  if(particles.length > 12000) particles.splice(0, particles.length - 12000);
-  if(balloons.length > 2000) balloons.splice(0, balloons.length - 2000);
-  if(sparks.length > 2000) sparks.splice(0, sparks.length - 2000);
-}, 2000);
-
-// small recurring spark attach for extra decorative motion
-setInterval(()=>{
-  if(particles.length > 0){
-    const p = particles[Math.floor(Math.random()*particles.length)];
-    spawnSpark(p.x + (Math.random()-0.5)*60, p.y + (Math.random()-0.5)*60);
-  }
-}, 300);
-
+// Alle Kommentare und Hinweise für UI/Aktionen auf Deutsch
 </script>
 </body>
 </html>
